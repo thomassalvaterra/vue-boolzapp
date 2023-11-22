@@ -30,23 +30,13 @@ header{
     margin-right: 10px;
 }
 
-#mainRow{
+.mainRow{
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: rgba(234,234,234,255);
     padding: 10px;
-    width: 100%;
 }
-
-/* #secondRow{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(234,234,234,255);
-    padding: 10px;
-    width: 100%;
-} */
 
 .icon{
     margin: 0 10px;
@@ -63,7 +53,7 @@ header{
     font-size: 20px;
 }
 
-#lightblueBackgr{
+.lightblueBgr{
     background-color: rgba(142,218,252,255);
     padding: 10px;
 }
@@ -77,8 +67,13 @@ header{
     padding: 10px;
 }
 
-#messageCont{
+.bg-main{
     background-image: url(img/mine.jpg);
+    height: 67vh;
+}
+
+.bgsearchbar{
+    background-color: whitesmoke;
 }
 
 .p-0{
@@ -93,4 +88,31 @@ header{
 .colorMainRow{
     background-color: rgba(234,234,234,255);
     padding: 10px;
+}
+
+.fs-7{
+    font-size: 7px;
+}
+
+.lunghezza-Input{
+    width: 90%;
+}
+
+.styleSendMsg{
+    background-color: rgba(213,249,186,255);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.scrollContacts{
+    overflow-y: scroll;
+}
+
+.borderBtm{
+    border-bottom: 1px solid lightgray;
+}
+
+.borderRgt{
+    border-right: 1px solid lightgray;
 }

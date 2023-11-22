@@ -15,76 +15,60 @@
         <header></header>
         <div id="container">
             <div class="row">
-                <nav class="col-4 p-0">
-                    <div id="mainRow">
-                        <div>
+                <nav class="col-4">
+                    <div class="row mainRow borderRgt">
+                        <div class="col-2">
                             <img src="img/avatar_io.jpg" alt="myAvatar" class="smallImg">
-                            <span>Sofia</span>
                         </div>
-                        <div>
+                        <div class="col-5">
+                            <div>Sofia</div>
+                        </div>
+                        <div class="col-5">
                             <i class="fa-solid fa-circle-notch icon"></i>
                             <i class="fa-solid fa-message icon"></i>
                             <i class="fa-solid fa-ellipsis-vertical icon"></i>
                         </div>
                     </div>
-                    <div id="lightblueBackgr">
-                        <div class="row">
-                            <div class="col-2">
-                                <i class="fa-solid fa-bell-slash lightblueIcon d-flex flex-justify-center"></i>
-                            </div>
-                            <div class="col-8">
-                                <div>Ricevi notifiche di nuovi messaggi</div>
-                                <span id="sottolineato">Attiva notifiche desktop</span>
-                            </div>
-                            <div class="col-2">
-
-                            </div>
+                    <div class="row lightblueBgr">
+                        <div class="col-2 d-flex align-items-center">
+                            <i class="fa-solid fa-bell-slash lightblueIcon d-flex align-items-center justify-content-center"></i>
                         </div>
-                        
-                        
+                        <div class="col-8">
+                            <div>Ricevi notifiche di nuovi messaggi</div>
+                            <a href="#">Attiva notifiche desktop</a>
+                        </div>
+                        <div class="col-2">
+
+                        </div>
                     </div>
-                    <nav class="navbar bg-body-tertiary">
-                        <form class="container-fluid">
+                        
+                    <div class="row d-flex bgsearchbar">
+                        <div class="col-12 d-flex m-1">
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
                                 <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
                             </div>
-                        </form>
-                    </nav>
-                    <div class="item">
-                        <img src="img/avatar_1.jpg" alt="" class="smallImg">
-                        <span>Michele</span>
+                        </div>
                     </div>
-                    <div class="item">
-                        <img src="img/avatar_2.jpg" alt="" class="smallImg">
-                        <span>Fabio</span>
-                    </div>
-                    <div class="item">
-                        <img src="img/avatar_3.jpg" alt="" class="smallImg">
-                        <span>Samuele</span>
-                    </div>
-                    <div class="item">
-                        <img src="img/avatar_4.jpg" alt="" class="smallImg">
-                        <span>Alessandro B.</span>
-                    </div>
-                    <div class="item">
-                        <img src="img/avatar_5.jpg" alt="" class="smallImg">
-                        <span>Alessandro L.</span>
-                    </div>
-                    <div class="item">
-                        <img src="img/avatar_6.jpg" alt="" class="smallImg">
-                        <span>Claudia</span>
-                    </div>
-                    <div class="item">
-                        <img src="img/avatar_7.jpg" alt="" class="smallImg">
-                        <span>Federico</span>
-                    </div>
-                    <div class="item">
-                        <img src="img/avatar_8.jpg" alt="" class="smallImg">
-                        <span>Davide</span>
+            
+                    <div class="row scrollContacts">
+                        <div class="col-12 mt-3">
+                            <div v-for="elemento,i in contacts" @click="selezionaChat(i)" class="row borderBtm">
+                                <div class="col-2 my-1">
+                                    <img class="smallImg" :src="elemento.avatar" alt="">
+                                </div>
+                                <div class="col-9 my-2">
+                                    <div>{{ elemento.name }}</div>
+                                    <div class="fs-7">Ultimo messaggio inviato</div>
+                                </div>
+                                <div class="col-1 my-2">
+                                    <p class="fs-7">12:00</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </nav>
-                <div class="col-8 p-0">
+                <div class="col-8">
                     <div class="row colorMainRow">
                         <div class="col-2">
                             <img src="img/avatar_1.jpg" alt="" class="smallImg">
@@ -94,24 +78,38 @@
                             <span class="changeFont">Ultimo accesso oggi alle 12:00</span>
                         </div>
                         
-                        <div class="col-2 flex-align-center">
+                        <div class="col-2 d-flex align-items-center">
                             <i class="fa-solid fa-magnifying-glass icon"></i>
                             <i class="fa-solid fa-paperclip icon"></i>
                             <i class="fa-solid fa-ellipsis-vertical icon"></i>
                         </div>
                     </div>
-                </div>
-                    <div id="messageCont">
-                        
+                    <div  class="row bg-main d-flex flex-column">
+                        <div v-for="messaggio in this.contacts[this.indexChat].messages" class="col-12 d-flex bgcontacts justify-content-end">
+                            <div class="styleSendMsg">
+                                <p class="my-2 fs-8">{{ messaggio.message }}</p>
+                                <p class="fs-7 d-flex justify-content-end my-0">{{ messaggio.date }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row bgsearchbar">
+                        <div class="col-1 my-2 text-center">
+                            <i class="fa-regular fa-face-smile fs-4"></i>
+                        </div>
+                        <div class="col-10 my-2">
+                            <input class="lunghezza-Input" type="text" placeholder="Scrivi un messaggio">
+                        </div>
+                        <div class="col-1 my-2">
+                            <i class="fa-solid fa-microphone fs-4"></i>
+                        </div>
                     </div>
                 </div>
+                
             </div>
         </div>
         
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </body>
 </html>
