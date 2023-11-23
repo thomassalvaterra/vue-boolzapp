@@ -70,6 +70,7 @@ header{
 .bg-main{
     background-image: url(img/mine.jpg);
     height: 67vh;
+    overflow-y: scroll;
 }
 
 .bgsearchbar{

@@ -5,6 +5,8 @@ createApp({
         return {
             indexChat: 0,
             newMessageText: "",
+            okMessage: "",
+            okInterval: 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -179,31 +181,29 @@ createApp({
         console.log("Cerca: ", this.searchText)
     },
 
-    sendMesagge() {
+    sendMessage() {
         const activeContact = this.contacts[this.indexChat];
 
-        activeContact.newMessages.push({
+        activeContact.messages.push({
             status: 'sent',
             message: this.newMessageText,
-            date: newDate().toLocaleString(),
+            date: new Date().toLocaleString(),
         });
 
         this.newMessageText = '';
 
-        clearInterval(this.okInterval);
-
-        this.okInterval = setInterval(() => {
-            this.okMessage = 'OK';
+        this.okInterval = setTimeout(() => {
+            activeContact.messages.push({
+                status: 'received',
+                message: this.okMessage = 'OK',
+                date: new Date().toLocaleString(),
+            })
         }, 1000);
     },
 
-    stopInterval() {
-        clearInterval(this.okInterval)
-    },
     },
 
     mounted() {
-        sendMesagge();
 
     }
 })
