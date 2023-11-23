@@ -120,7 +120,7 @@ header{
 
 .msg-received{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     background-color: #ffffff;
     min-width: 300px;
     border-radius: 20px;

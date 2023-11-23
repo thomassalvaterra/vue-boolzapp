@@ -86,7 +86,7 @@
                         </div>
                     </div>
                     <div  class="row bg-main d-flex flex-column">
-                        <div v-for="messaggio in this.contacts[this.indexChat].messages" class="col-12 d-flex justify-content-end my-2">
+                        <div v-for="messaggio in this.contacts[this.indexChat].messages" class="col-12 d-flex my-2">
                             <p v-if="messaggio.status == 'received'" class="msg-received ps-2 fs-8">{{ messaggio.message }} : {{ messaggio.date }}</p>
                             <p v-if="messaggio.status == 'sent'" class="msg-sent ps-2 fs-8">{{ messaggio.message }} : {{ messaggio.date }}</p>
                         </div>

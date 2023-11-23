@@ -6,7 +6,7 @@ createApp({
             indexChat: 0,
             newMessageText: "",
             okMessage: "",
-            okInterval: 0,
+            searchText: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -178,7 +178,14 @@ createApp({
     },
 
     searchContact() {
-        console.log("Cerca: ", this.searchText)
+        console.log("Cerca: ", this.contacts)
+        for (let i  = 0; i  < contacts.length; i ++) {
+           if (this.contacts[i].name.includes(this.searchText)) {
+            this.visible = true;
+           } else {
+            this.visible = false;
+           }           
+        }
     },
 
     sendMessage() {
@@ -204,7 +211,7 @@ createApp({
     },
 
     mounted() {
-
+        console.log(this.contacts)
     }
 })
 .mount('#app')
