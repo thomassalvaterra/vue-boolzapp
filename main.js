@@ -4,6 +4,7 @@ createApp({
     data() {
         return {
             indexChat: 0,
+            newMessageText: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -170,13 +171,40 @@ createApp({
         }
     },
     methods: {
-        selezionaChat(n) {
-            console.log(n);
-        }
+    selezionaChat(n) {
+        this.indexChat = n;
+    },
+
+    searchContact() {
+        console.log("Cerca: ", this.searchText)
+    },
+
+    sendMesagge() {
+        const activeContact = this.contacts[this.indexChat];
+
+        activeContact.newMessages.push({
+            status: 'sent',
+            message: this.newMessageText,
+            date: newDate().toLocaleString(),
+        });
+
+        this.newMessageText = '';
+
+        clearInterval(this.okInterval);
+
+        this.okInterval = setInterval(() => {
+            this.okMessage = 'OK';
+        }, 1000);
+    },
+
+    stopInterval() {
+        clearInterval(this.okInterval)
+    },
     },
 
     mounted() {
-        console.log(this)
+        sendMesagge();
+
     }
 })
 .mount('#app')

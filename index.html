@@ -46,7 +46,8 @@
                         <div class="col-12 d-flex m-1">
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-                                <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                                <input type="text" v-model="searchText" @key-up="searchContact" class="form-control" 
+                                placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
                             </div>
                         </div>
                     </div>
@@ -85,11 +86,9 @@
                         </div>
                     </div>
                     <div  class="row bg-main d-flex flex-column">
-                        <div v-for="messaggio in this.contacts[this.indexChat].messages" class="col-12 d-flex bgcontacts justify-content-end">
-                            <div class="styleSendMsg">
-                                <p class="my-2 fs-8">{{ messaggio.message }}</p>
-                                <p class="fs-7 d-flex justify-content-end my-0">{{ messaggio.date }}</p>
-                            </div>
+                        <div v-for="messaggio in this.contacts[this.indexChat].messages" class="col-12 d-flex justify-content-end my-2">
+                            <p v-if="messaggio.status == 'received'" class="msg-received ps-2 fs-8">{{ messaggio.message }} : {{ messaggio.date }}</p>
+                            <p v-if="messaggio.status == 'sent'" class="msg-sent ps-2 fs-8">{{ messaggio.message }} : {{ messaggio.date }}</p>
                         </div>
                     </div>
                     <div class="row bgsearchbar">
@@ -97,7 +96,8 @@
                             <i class="fa-regular fa-face-smile fs-4"></i>
                         </div>
                         <div class="col-10 my-2">
-                            <input class="lunghezza-Input" type="text" placeholder="Scrivi un messaggio">
+                            <input type="text" placeholder="Scrivi un messaggio" class="lunghezza-Input" v-model="newMessageText" @keyup.enter="sendMessage">
+                            <button @click="sendMessage()">Add</button>
                         </div>
                         <div class="col-1 my-2">
                             <i class="fa-solid fa-microphone fs-4"></i>

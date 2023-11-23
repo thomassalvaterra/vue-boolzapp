@@ -116,3 +116,21 @@ header{
 .borderRgt{
     border-right: 1px solid lightgray;
 }
+
+.msg-received{
+    display: flex;
+    justify-content: start;
+    background-color: #ffffff;
+    min-width: 300px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.msg-sent{
+    display: flex;
+    justify-content: flex-end;
+    background-color: #d4f8ba;
+    min-width: 300px;
+    border-radius: 20px;
+    padding: 10px;
+}
