@@ -179,11 +179,11 @@ createApp({
 
     searchContact() {
         console.log("Cerca: ", this.contacts)
-        for (let i  = 0; i  < contacts.length; i ++) {
+        for (let i  = 0; i  < this.contacts.length; i ++) {
            if (this.contacts[i].name.includes(this.searchText)) {
-            this.visible = true;
+            this.contacts[i].visible = true;
            } else {
-            this.visible = false;
+            this.contacts[i].visible = false;
            }           
         }
     },
