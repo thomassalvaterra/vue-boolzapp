@@ -54,7 +54,7 @@
             
                     <div class="row scrollContacts">
                         <div class="col-12 mt-3">
-                            <div v-for="elemento,i in contacts" @click="selezionaChat(i)" class="row borderBtm">
+                            <div v-for="elemento,i in contacts" v-show="elemento.visible" @click="selezionaChat(i)" class="row borderBtm">
                                 <div class="col-2 my-1">
                                     <img class="smallImg" :src="elemento.avatar" alt="">
                                 </div>
